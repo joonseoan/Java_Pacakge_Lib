@@ -11,8 +11,12 @@ public class Series {
     return sum;
   }
 
-  static public int factorial(int n) {
-    int product = 1;
+  static public long factorial(int n) {
+    if (n == 0) {
+      return n;
+    }
+
+    long product = 1;
 
     for (int i = 1; i <= n; i++) {
       product *= i;
@@ -21,12 +25,20 @@ public class Series {
     return product;
   }
 
-  static public int fibonacci(int n) {
-    int prePreNum = 0;
-    int preNum = 1;
+  static public long fibonacci(int n) {
+    long prePreNum = 0;
+    long preNum = 1;
 
-    for (int i = 0; i < n - 1; i++) {
-      int temNum = preNum;
+    if (n == 0) {
+      return prePreNum;
+    }
+
+    if (n == 1) {
+      return preNum;
+    }
+
+    for (int i = 1; i < n; i++) {
+      long temNum = preNum;
       preNum = prePreNum + preNum;
       prePreNum = temNum;
     }
